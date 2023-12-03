@@ -3,6 +3,7 @@
 #include "beap.h"
 #include "Lheap.h"
 #include "Sheap.h"
+#include "Binheap.h"
 
 int main() {
     vector<int> v;
@@ -41,12 +42,20 @@ int main() {
         cout << l.DeleteMax() << ", ";
     }*/
 
-    Sheap s;
+    /*Sheap s;
     for(int i = 0; i < 256; i++) {
         s.Insert((17 * i + 33) % 100);
     }
     for(int i = 0; i < 256; i++){
         cout << s.DeleteMax() << ", ";
+    }*/
+
+    Binheap bin;
+    for(int i = 0; i < 256; i++) {
+        bin.Insert((17 * i + 33) % 100);
+    }
+    for(int i = 0; i < 256; i++){
+        cout << bin.DeleteMax() << ", ";
     }
 
 }

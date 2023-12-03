@@ -13,4 +13,10 @@ add_executable(kolejki main.cpp
         Sheap.h
         Sheap.cpp
         Binheap.h
-        Binheap.cpp)
+        Binheap.cpp
+        Fibheap.cpp
+        Fibheap.h
+        Dicts/IDict.h
+        Dicts/IDict.h
+        Dicts/Bst.cpp
+        Dicts/Bst.h)

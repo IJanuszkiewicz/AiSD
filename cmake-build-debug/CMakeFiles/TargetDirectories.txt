@@ -1,0 +1,3 @@
+C:/Users/igo-j/github/AiSD/cmake-build-debug/CMakeFiles/kolejki.dir
+C:/Users/igo-j/github/AiSD/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/igo-j/github/AiSD/cmake-build-debug/CMakeFiles/rebuild_cache.dir
