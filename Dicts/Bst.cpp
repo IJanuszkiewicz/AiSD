@@ -5,9 +5,10 @@
 #include "Bst.h"
 #include <ctime>
 #include <random>
+
 bstNode **Bst::Search(int key) {
     bstNode **ptr = &root;
-    while(*ptr && (*ptr)->key != key){
+    while (*ptr && (*ptr)->key != key) {
         ptr = &((*ptr)->next[key > (*ptr)->key]);
     }
     return ptr;
@@ -15,25 +16,31 @@ bstNode **Bst::Search(int key) {
 
 void Bst::Insert(int key) {
     bstNode **p = Search(key);
-    if(*p) return;
+    if (*p) return;
     *p = new bstNode(key);
 }
 
 void Bst::Delete(int key) {
     bstNode **p = Search(key);
-    if(!(*p)) return;
+    if (!(*p)) return;
 
-    if((*p)->next[0] && (*p)->next[1]){
+    if ((*p)->next[0] && (*p)->next[1]) {
         srand(time(nullptr));
         int direction = std::rand() % 2;
 
         bstNode **toSwap = &((*p)->next[direction]);
-        while ((*toSwap)->next[1 - direction]){
+        while ((*toSwap)->next[1 - direction]) {
             toSwap = &((*toSwap)->next[1 - direction]);
         }
         bstNode *toDel = *p;
+        bstNode *helper = (*toSwap)->next[direction];
+        (*toSwap)->next[direction] = toDel->next[direction];
+        (*toSwap)->next[1 - direction] = toDel->next[1 - direction];
 
-
+        *p = *toSwap;
+        *toSwap = helper;
+        delete toDel;
+        return;
     } else {
         bstNode *toDel = *p;
         *p = (*p)->next[0] ? (*p)->next[0] : (*p)->next[1];

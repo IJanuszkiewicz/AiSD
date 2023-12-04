@@ -7,7 +7,7 @@
 
 #include "IPQueue.h"
 
-class Fibheap {
+class Fibheap : IPQueue{
     struct node {
         int key;
         int rank;
@@ -20,9 +20,23 @@ class Fibheap {
 
     node *head = nullptr;
     node *max = nullptr;
-
+    explicit Fibheap(node* p):head(p), max(p){}
+    node *FindMax() const;
+    static node *FindMax(node* head);
+    void Consolidate();
+    static node *MergeTrees(node *root1, node *root2);
+    node *Extract();
+    static void AddToTab(node **tab, node *p);
 public:
-    //static void Union(Fibheap &heap1, Fibheap &heap2;);
+    Fibheap(): head(nullptr), max(nullptr){}
+    static node *Find(int key, node *head);
+    node *Find(int key) {return Find(key, head);}
+    void IncreaseKey(node *where, int howMuch);
+
+    void Union(Fibheap heap);
+    void Insert(int key) override;
+    int Max() const override {return max->key;}
+    int DeleteMax() override;
 };
 
 

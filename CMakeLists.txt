@@ -19,4 +19,6 @@ add_executable(kolejki main.cpp
         Dicts/IDict.h
         Dicts/IDict.h
         Dicts/Bst.cpp
-        Dicts/Bst.h)
+        Dicts/Bst.h
+        TwoThreeTree.cpp
+        TwoThreeTree.h)

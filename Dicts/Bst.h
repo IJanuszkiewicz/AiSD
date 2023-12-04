@@ -17,7 +17,7 @@ struct bstNode{
 };
 
 class Bst {
-    bstNode *root;
+    bstNode *root = nullptr;
 
 public:
     bstNode **Search(int key);
